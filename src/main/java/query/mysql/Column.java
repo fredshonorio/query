@@ -31,13 +31,17 @@ public class Column<TYPE, TABLE extends Table> implements ToQuery,
         }
     }
 
-    public static class LongC<TABLE extends Table> extends Column<Long, TABLE> {
+    public static class LongC<TABLE extends Table> extends Column<Long, TABLE>
+        implements AndThenComp.AllNumeric<Long, TABLE>
+    {
         public LongC(String name, TABLE table) {
             super(name, Long.class, table);
         }
     }
 
-    public static class IntC<TABLE extends Table> extends Column<Integer, TABLE> {
+    public static class IntC<TABLE extends Table> extends Column<Integer, TABLE>
+        implements AndThenComp.AllNumeric<Integer, TABLE>
+    {
         public IntC(String name, TABLE table) {
             super(name, Integer.class, table);
         }
