@@ -1,9 +1,11 @@
 package query.mysql;
 
 import query.mysql.trait.AndThenComp;
+import query.mysql.trait.AndThenOrder;
 
 public class Column<TYPE, TABLE extends Table> implements ToQuery,
-    AndThenComp.AllIdentity<TYPE, TABLE> {
+    AndThenComp.AllIdentity<TYPE, TABLE>,
+    AndThenOrder.Desc<TYPE, TABLE> {
 
     private final String name;
     private final Class<TYPE> clz;

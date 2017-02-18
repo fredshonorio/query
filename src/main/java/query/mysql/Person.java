@@ -16,10 +16,11 @@ public class Person extends Table<Person> {
     public static void main(String[] args) {
 
         SelectQuery<Person> s = Person.table
-            .select(p -> List(p.name))
-            .where(p -> p.name.eq("Pépe")
-                .and(p.age.gt(18))
-            );
+            .select(p -> List(p.name)) // p.name must exist in Person.table
+            .where(p -> p.name.eq("Pépe") // name (a String field) can only be compared to string literals, only has operations that make sense on String
+                .and(p.age.gt(18)))
+            .orderBy(p -> List(p.age.desc()))
+            ;
 
         System.out.println(s.toSQL());
     }
