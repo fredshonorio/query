@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+sourceCompatibility = targetCompatibility = 1.8
+
+version = '0'
+project.group = "query"
+
+jar {
+    manifest { attributes 'Implementation-Title': 'query', 'Implementation-Version': version }
+    from sourceSets.main.allSource
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    compile 'io.javaslang:javaslang:2.1.0-alpha'
+    testCompile 'junit:junit:4.12'
+}
+
+task wrapper(type: Wrapper) { gradleVersion = '2.13' }
